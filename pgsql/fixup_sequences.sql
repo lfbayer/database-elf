@@ -1,5 +1,4 @@
-DROP FUNCTION IF EXISTS fixup_sequences();
-CREATE OR REPLACE FUNCTION fixup_sequences() RETURNS void AS 63359
+CREATE FUNCTION fixup_sequences() RETURNS void AS $$
   DECLARE
     target_seq RECORD;
     max_result RECORD;
@@ -19,7 +18,7 @@ CREATE OR REPLACE FUNCTION fixup_sequences() RETURNS void AS 63359
       END LOOP;
     END LOOP;
   END;
-63359 LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 SELECT fixup_sequences();
 DROP FUNCTION fixup_sequences();
 
